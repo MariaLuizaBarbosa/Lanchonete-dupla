@@ -17,18 +17,27 @@ class Login extends Component
         'password' => 'required|min:6'
     ];
 
-    public $messages =[
+    public $messages = [
         'email.required' => 'email obrigatório',
         'email.email' => 'formato de email inválido',
         'password.required' => 'senha obrigatória',
         'password.min' => 'senha deve conter no mínimo 6 caracteres'
     ];
 
-    public function Login(){
+    public function login()
+    {
         $this->validate();
-        if(Auth::attempt(['email'=> $this->email, 'password' => $this->password])){
+        if (Auth::attempt(['email' => $this->email, 'password' => $this->password ])) {
             session()->regenerate();
-            return redirect()->route(Auth::user()->role === 'admin' ? 'admin.dashboard': 'user.dashboard');
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+            if (Auth::user()->role === 'funcionario') {
+                return redirect()->route('funcionario.dashboard');
+            }
+            if (Auth::user()->role === 'clientes') {
+                return redirect()->route('clientes.dashboard');
+            }
         }
         session()->flash('error', 'Email ou senha incorretos');
     }

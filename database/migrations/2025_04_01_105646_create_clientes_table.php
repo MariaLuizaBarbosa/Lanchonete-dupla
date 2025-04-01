@@ -16,8 +16,8 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable(false);
             $table->string('nome')->nullable(false);
             $table->string('endereco')->nullable(false);
-            $table->string('telefone')->unique()->nullable(false);
-            $table->string('cpf')->unique()->nullable(false);
+            $table->string('telefone', 12)->unique()->nullable(false);
+            $table->string('cpf', 11)->unique()->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
