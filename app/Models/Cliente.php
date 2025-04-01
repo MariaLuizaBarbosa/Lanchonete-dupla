@@ -13,10 +13,11 @@ class Cliente extends Model
         'nome',
         'endereco',
         'telefone',
-        'cpf'
+        'cpf',
+        'user_id'
     ];
 
     public function user(){
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
 }
