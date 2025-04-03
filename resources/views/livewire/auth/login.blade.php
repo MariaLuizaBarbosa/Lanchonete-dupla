@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ $titulo ?? 'BATATA' }}</title>
+</head>
+
+
 <div class="d-flex aling-items-center justify-content-center  bg-success-subtle">
     <div class="card shadow-sm p-4" style="width: 500px">
         <h2 class="text-center mb-4">Login</h2>

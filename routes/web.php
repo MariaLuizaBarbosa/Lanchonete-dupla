@@ -6,15 +6,13 @@ use App\Livewire\Cliente\Index;
 use App\Livewire\Create\Create;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', Login::class);
+Route::get('/login', Login::class)->name('login');
 
 Route::get('/admin', function(){
     return 'login admin';
 })->middleware(['auth', 'role:admin'])->name('admin.dashboard');
 
-Route::get('/cliente', function(){
-    return 'login cliente';
-})->middleware(['auth', 'role:cliente'])->name('cliente.dashboard');
+Route::get('/cliente', Create::class)->middleware(['auth', 'role:cliente'])->name('cliente.dashboard');
 
 Route::get('/user', function(){
     return 'login user';

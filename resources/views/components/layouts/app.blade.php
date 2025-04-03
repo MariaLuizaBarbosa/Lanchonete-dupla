@@ -21,7 +21,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container">
         {{ $slot }}
     </div>
 

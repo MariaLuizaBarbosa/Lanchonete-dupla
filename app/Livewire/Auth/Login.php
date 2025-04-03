@@ -35,8 +35,8 @@ class Login extends Component
             if (Auth::user()->role === 'funcionario') {
                 return redirect()->route('funcionario.dashboard');
             }
-            if (Auth::user()->role === 'clientes') {
-                return redirect()->route('clientes.dashboard');
+            if (Auth::user()->role === 'cliente') {
+                return redirect()->route('cliente.dashboard');
             }
         }
         session()->flash('error', 'Email ou senha incorretos');
